@@ -9,7 +9,9 @@ function Sidebar({ topAnime }) {
                     return( 
                     <a href={anime.url} target='_blank' rel='noreferrer' key={anime.mal_id}>
                         {anime.title}
-                    </a>)
+                        <img src={anime.image_url} alt=""/>
+                    </a>
+                    )
                 })}
             </nav>
         </aside>

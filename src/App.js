@@ -15,7 +15,7 @@ function App() {
     const response = await fetch(url+'/top/anime/1/bypopularity')
     const temp = await response.json()
 
-    setTopAnime(temp.top.slice(0,5))
+    setTopAnime(temp.top.slice(0,11))
   }
 
   const handleSearch = e => {
