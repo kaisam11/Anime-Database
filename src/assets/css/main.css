@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+header {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+header h1 {
+  color: #AAA;
+  font-size: 3.6rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+header h1 strong {
+  color: #313131;
+}
+
+.content-wrap {
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap {
+    flex-direction: column-reverse;
+  }
+}
+
+.content-wrap aside {
+  flex: 1 1 25rem;
+  max-width: 30rem;
+  padding-right: 3rem;
+}
+
+.content-wrap aside nav {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.content-wrap aside nav h3 {
+  color: #313131;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.content-wrap aside nav a {
+  display: block;
+  padding: 1rem 2rem;
+  text-align: left;
+  color: #888;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background-color: #EEE;
+  border-radius: 10rem;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.content-wrap aside nav a:hover {
+  background-color: #313131;
+  color: #AAA;
+}
+
+.content-wrap main {
+  flex: 1 1 0%;
+  padding: 0 2rem;
+}
+
+.content-wrap main .main-head {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content-wrap main .main-head .search-box {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1 0%;
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap main .main-head .search-box {
+    justify-content: center;
+  }
+}
+
+.content-wrap main .main-head .search-box input {
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  display: block;
+  width: 100%;
+  max-width: 40rem;
+  padding: 2rem;
+  border-radius: 10rem;
+  background-color: #EEE;
+  transition: 0.4s;
+}
+
+.content-wrap main .main-head .search-box input ::placeholder {
+  color: #888;
+}
+
+.content-wrap main .main-head .search-box input:focus, .content-wrap main .main-head .search-box input:valid {
+  background-color: #313131;
+  color: #FFF;
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap main .main-head .search-box input:focus, .content-wrap main .main-head .search-box input:valid {
+    font-size: 1.5rem;
+  }
+}
+
+.content-wrap main .anime-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
+  margin: 3rem -.8rem 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .content-wrap main .anime-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap main .anime-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.content-wrap main .anime-list .anime-card {
+  flex: 1 1 33.333%;
+  max-width: 33.333%;
+  padding: 2rem .8rem;
+}
+
+.content-wrap main .anime-list .anime-card a {
+  text-decoration: none;
+}
+
+.content-wrap main .anime-list .anime-card figure {
+  display: block;
+  margin-bottom: 2rem;
+  width: 30vw;
+  max-width: 25rem;
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap main .anime-list .anime-card figure {
+    width: 90vw;
+    max-width: 90vw;
+  }
+}
+
+.content-wrap main .anime-list .anime-card figure img {
+  display: block;
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.4s;
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrap main .anime-list .anime-card figure img {
+    height: 35rem;
+    width: 100%;
+    object-position: top;
+  }
+}
+
+.content-wrap main .anime-list .anime-card h3 {
+  color: #313131;
+  font-weight: 100;
+  font-size: 2rem;
+  width: 75%;
+  margin-top: 1rem;
+}
+
+.content-wrap main .anime-list .anime-card:hover figure img {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}

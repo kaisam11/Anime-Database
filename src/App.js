@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState,useEffect} from 'react'
+import Sidebar from './components/Sidebar'
+import MainContent from './components/MainContent'
+import Header from './components/Header'
+
+const url = 'https://api.jikan.moe/v3'
 
 function App() {
+
+  const [animeList,setAnimeList] = useState([])
+  const [topAnime,setTopAnime] = useState([])
+  const [search,setSearch] = useState('')
+
+  const getTopAnime = async () => {
+    const response = await fetch(url+'/top/anime/1/bypopularity')
+    const temp = await response.json()
+
+    setTopAnime(temp.top.slice(0,5))
+  }
+
+  const handleSearch = e => {
+    e.preventDefault()
+
+    fetchAnime(search)
+  }
+
+  const fetchAnime = async (query) => {
+    const response = await fetch(url+'/search/anime?q='+query+'&order_by=title&sort=asc&limit=10')
+
+    const temp = await response.json()
+
+    setAnimeList(temp.results)
+  }
+
+  useEffect(() => {
+    getTopAnime()
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="content-wrap">
+        <Sidebar topAnime={topAnime} />
+        <MainContent handleSearch={handleSearch}
+          search={search} setSearch={setSearch}
+          animeList={animeList}
+        />
+      </div>
     </div>
   );
 }
